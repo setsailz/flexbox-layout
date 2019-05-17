@@ -16,9 +16,6 @@
 
 package com.google.android.flexbox;
 
-import static androidx.recyclerview.widget.LinearLayoutManager.INVALID_OFFSET;
-import static androidx.recyclerview.widget.RecyclerView.NO_POSITION;
-
 import android.content.Context;
 import android.graphics.PointF;
 import android.graphics.Rect;
@@ -39,6 +36,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.LinearSmoothScroller;
 import androidx.recyclerview.widget.OrientationHelper;
 import androidx.recyclerview.widget.RecyclerView;
+
+import static androidx.recyclerview.widget.LinearLayoutManager.INVALID_OFFSET;
+import static androidx.recyclerview.widget.RecyclerView.NO_POSITION;
 
 /**
  * LayoutManager for the {@link RecyclerView}. This class is intended to be used within a
@@ -2275,7 +2275,7 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
         int laidOutArea = Math.abs(mOrientationHelper.getDecoratedEnd(lastReferenceView) -
                 mOrientationHelper.getDecoratedStart(firstReferenceView));
         int firstLinePosition = mFlexboxHelper.mIndexToFlexLine[minPosition];
-        if (firstLinePosition == 0 || firstLinePosition == NO_POSITION) {
+        if (firstLinePosition == NO_POSITION) {
             return 0;
         }
         int lastLinePosition = mFlexboxHelper.mIndexToFlexLine[maxPosition];
